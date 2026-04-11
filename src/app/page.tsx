@@ -1,65 +1,125 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight, Star, ShieldCheck, Truck } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="flex flex-col w-full">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: "url('/images/ArtvinYusufeli.jpg')",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div className="absolute inset-0 z-10 bg-black/60" /> {/* Dim Overlay */}
+
+        <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="text-primary font-semibold tracking-[0.2em] uppercase text-sm md:text-base mb-4 block">
+              Doğadan Sofranıza
+            </span>
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+          >
+            Artvin Yusufeli'nin <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-primary">
+              Altın Değerindeki Balı
+            </span>
+          </motion.h1>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-gray-300 text-lg md:text-xl mb-10 max-w-2xl"
+          >
+            100% doğal, katkısız ve yüksek rakımlı yaylalardan elde edilen premium bal ve arı ürünleri.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+          >
+            <Link 
+              href="/shop" 
+              className="bg-primary hover:bg-primary/90 text-black font-semibold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-2"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Hemen Alışverişe Başla <ArrowRight size={18} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-dark-950">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="glass p-8 rounded-2xl flex flex-col items-center text-center gap-4"
             >
-              Learning
-            </a>{" "}
-            center.
+              <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                <Star size={32} />
+              </div>
+              <h3 className="text-xl font-semibold">Premium Kalite</h3>
+              <p className="text-gray-400">En iyi polen florasına sahip yüksek rakımlı Yusufeli yaylalarından üstün kaliteli ürünler.</p>
+            </motion.div>
+
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="glass p-8 rounded-2xl flex flex-col items-center text-center gap-4"
+            >
+              <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                <ShieldCheck size={32} />
+              </div>
+              <h3 className="text-xl font-semibold">100% Doğal</h3>
+              <p className="text-gray-400">Hiçbir katkı maddesi içermeyen, tamamen doğal yöntemlerle üretilmiştir.</p>
+            </motion.div>
+
+            <motion.div 
+              whileHover={{ y: -5 }}
+              className="glass p-8 rounded-2xl flex flex-col items-center text-center gap-4"
+            >
+              <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                <Truck size={32} />
+              </div>
+              <h3 className="text-xl font-semibold">Güvenilir Teslimat</h3>
+              <p className="text-gray-400">Özel korumalı ambalajlarda tüm Türkiye'ye hasar görmeden hızlı teslimat.</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Short Story Section */}
+      <section className="py-24 bg-dark-900">
+        <div className="container mx-auto px-4 text-center max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Nesillerdir Süren Gelenek</h2>
+          <p className="text-gray-400 leading-relaxed text-lg">
+            Genç Arıcılık olarak, doğaya ve emeğe saygı duyarak, atalarımızdan öğrendiğimiz arıcılık geleneğini modern teknolojiyle birleştiriyoruz. Amacımız sadece bal üretmek değil, doğanın bu mucizesini en saf haliyle evinize ulaştırmaktır.
           </p>
+          <div className="mt-8">
+            <Link href="/hakkimizda" className="text-primary hover:underline underline-offset-4 tracking-wide font-medium">
+              Hikayemizin Tamamını Oku
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
     </div>
   );
 }
