@@ -10,9 +10,6 @@ export default function Footer() {
               src="/images/GençArıcılık_Logo.png" 
               alt="Genç Arıcılık" 
               className="h-12 w-auto mb-4 object-contain opacity-80"
-              onError={(e) => {
-                e.currentTarget.src = "https://via.placeholder.com/150x50?text=Logo";
-              }}
             />
             <p className="text-gray-400 text-sm mt-4 leading-relaxed">
               Artvin Yusufeli'nden doğanın en saf armağanı. Karakovan, Süzme Bal ve Arı ürünleri.

@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Bee from "@/components/Bee";
 import Link from "next/link";
 import { ArrowRight, Star, ShieldCheck, Truck } from "lucide-react";
+import { productsData } from "@/data/products";
 
 export default function Home() {
   return (
@@ -16,9 +18,17 @@ export default function Home() {
             backgroundImage: "url('/images/ArtvinYusufeli.jpg')",
           }}
         />
-        <div className="absolute inset-0 z-10 bg-black/60" /> {/* Dim Overlay */}
+        <div className="absolute inset-0 z-10 bg-black/75" /> {/* Dim Overlay */}
 
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
+          {/* Sevimli Arı */}
+          <div className="absolute -top-16 -left-12 md:-left-24">
+            <Bee className="w-24 h-24 md:w-32 md:h-32" />
+          </div>
+          <div className="absolute top-10 -right-10 md:-right-20">
+             <Bee className="w-16 h-16 md:w-24 md:h-24 scale-x-[-1]" delay={1.5} />
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -33,10 +43,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl"
           >
             Artvin Yusufeli'nin <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-primary">
+            <span className="text-yellow-400 drop-shadow-[0_5px_5px_rgba(0,0,0,1)]">
               Altın Değerindeki Balı
             </span>
           </motion.h1>
@@ -58,11 +68,51 @@ export default function Home() {
           >
             <Link 
               href="/shop" 
-              className="bg-primary hover:bg-primary/90 text-black font-semibold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-2"
+              className="bg-primary hover:bg-yellow-500 text-white font-bold py-4 px-8 rounded-full transition-all flex items-center justify-center gap-2 drop-shadow-lg"
             >
               Hemen Alışverişe Başla <ArrowRight size={18} />
             </Link>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Featured Products Section */}
+      <section className="py-24 bg-dark-900 border-b border-white/5">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ürünlerimizden Bazıları</h2>
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {productsData.slice(0, 4).map((prod) => (
+              <motion.div 
+                key={prod.id}
+                whileHover={{ y: -10 }}
+                className="glass rounded-2xl p-6 flex flex-col items-center group transition-colors hover:border-primary/50 relative"
+              >
+                <Link href={`/shop/${prod.id}`} className="w-full h-48 bg-white rounded-xl mb-6 p-4 flex items-center justify-center shadow-inner overflow-hidden cursor-pointer">
+                  <img src={prod.image} alt={prod.title} className="max-h-full object-contain group-hover:scale-110 transition-transform duration-500" />
+                </Link>
+                <Link href={`/shop/${prod.id}`}>
+                  <h3 className="text-xl font-bold mb-2 text-white hover:text-primary transition-colors text-center">{prod.title}</h3>
+                </Link>
+                
+                <div className="flex flex-col items-center mt-auto w-full pt-4 border-t border-white/10">
+                  <p className="text-primary font-bold text-xl mb-3">{prod.price > 0 ? `${prod.price} ₺` : "0 ₺"}</p>
+                  <Link href={`/shop/${prod.id}`} className="w-full text-center bg-yellow-400 text-black font-bold py-2.5 rounded-lg hover:bg-yellow-600 drop-shadow-md active:scale-95 transition-all duration-300">
+                    Ürünü İncele
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link href="/shop" className="inline-block border border-primary text-primary hover:bg-primary hover:text-black font-semibold py-3 px-8 rounded-full transition-colors">
+              Tüm Ürünleri Gör
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -75,3 +75,11 @@ model OrderItem {
   price     Float
   size      String?
 }
+
+model Certificate {
+  id        String   @id @default(cuid())
+  title     String
+  imageUrl  String
+  createdAt DateTime @default(now())
+}
+
