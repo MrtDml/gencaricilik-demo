@@ -1,8 +1,8 @@
 export const productsData = [
-  { 
-    id: "1", 
-    title: "Hakiki Karakovan Balı", 
-    price: 0, 
+  {
+    id: "1",
+    title: "Hakiki Karakovan Balı",
+    price: 850,
     image: "/images/Karakovan Balı.png", 
     category: "Karakovan",
     description: "Artvin'in el değmemiş doğasından yüksek rakımlı yaylalarda üretilmiş petekli hakiki karakovan balı.",
@@ -20,10 +20,10 @@ export const productsData = [
       { author: "Leyla S.", rating: 4, date: "22 Ocak 2026", comment: "Balın kıvamı ve şifası tam istediğimiz gibi. Severek tüketiyoruz." }
     ]
   },
-  { 
-    id: "2", 
-    title: "Süzme Çiçek Balı", 
-    price: 0, 
+  {
+    id: "2",
+    title: "Süzme Çiçek Balı",
+    price: 450,
     image: "/images/Süzme Bal.png", 
     category: "Süzme",
     description: "Zengin flora ve endemik türlerin karışımıyla hazırlanan hafif ama etkili süzme bal.",
@@ -38,10 +38,10 @@ export const productsData = [
       { author: "Ercan B.", rating: 5, date: "15 Şubat 2026", comment: "Çocuklar tatlı niyetine ekmeğe sürüp yiyorlar. Çok saf ve akışkan." }
     ]
   },
-  { 
-    id: "3", 
-    title: "Saf Arı Sütü", 
-    price: 0, 
+  {
+    id: "3",
+    title: "Saf Arı Sütü",
+    price: 750,
     image: "/images/Arı Sütü.png", 
     category: "Takviye",
     description: "Kraliçe arının besini, hücre yenileyici ve saf enerji deposu doğal arı sütü.",
@@ -57,10 +57,10 @@ export const productsData = [
       { author: "Sevim L.", rating: 4, date: "10 Mart 2026", comment: "Tadı biraz ekşi ama şifa niyetine 1 çay kaşığı alıyoruz. Çok memnunuz." }
     ]
   },
-  { 
-    id: "4", 
-    title: "Doğal Propolis Damla", 
-    price: 0, 
+  {
+    id: "4",
+    title: "Doğal Propolis Damla",
+    price: 650,
     image: "/images/Propolis.png", 
     category: "Takviye",
     description: "Bağışıklık sisteminin en güçlü doğal savunucusu, saf propolis ekstresi.",
@@ -75,10 +75,10 @@ export const productsData = [
       { author: "Osman N.", rating: 5, date: "05 Eylül 2025", comment: "Kış gelmeden stoğumu yaparım. Çocuğun suyuna 5 damla damlatıyorum, hiç hasta olmadı." }
     ]
   },
-  { 
-    id: "5", 
-    title: "Çerçeve Petek Balı", 
-    price: 0, 
+  {
+    id: "5",
+    title: "Çerçeve Petek Balı",
+    price: 700,
     image: "/images/Çerçeve Bal.png", 
     category: "Karakovan",
     description: "Ahşap çerçeve içerisinde arıların kendi ördüğü katkısız petek bal.",
@@ -92,10 +92,10 @@ export const productsData = [
       { author: "Ferhat D.", rating: 5, date: "02 Nisan 2026", comment: "Muazzam bir işçilik, çerçevesiyle birlikte geliyor ve çok taze. Teşekkürler Genç Arıcılık." }
     ]
   },
-  { 
-    id: "6", 
-    title: "Organik Kestane Balı", 
-    price: 0, 
+  {
+    id: "6",
+    title: "Organik Kestane Balı",
+    price: 550,
     image: "/images/Süzme Bal.png", 
     category: "Süzme",
     description: "Yusufeli ormanlarından özel olarak sağılan, yüksek antioksidan oranlı hakiki kestane balı.",
@@ -110,10 +110,10 @@ export const productsData = [
       { author: "Barış E.", rating: 5, date: "23 Aralık 2025", comment: "Tadı tam da aradığım gibi hafif buruk. Gerçek kestane olduğunu renginden anlıyorsunuz." }
     ]
   },
-  { 
-    id: "7", 
-    title: "Karakovan Petek Büyük", 
-    price: 0, 
+  {
+    id: "7",
+    title: "Karakovan Petek Büyük",
+    price: 1200,
     image: "/images/Karakovan Balı.png", 
     category: "Karakovan",
     description: "Büyük aile boyu, özel ahşap sandığında gönderilen doğal yayla karakovan balı.",
@@ -127,10 +127,10 @@ export const productsData = [
       { author: "Sinan K.", rating: 5, date: "10 Ocak 2026", comment: "Boyutu beklediğimi aştı, özel paketleme sayesinde hiç ezilmemiş." }
     ]
   },
-  { 
-    id: "8", 
-    title: "Karışım Kudret Macunu", 
-    price: 0, 
+  {
+    id: "8",
+    title: "Karışım Kudret Macunu",
+    price: 850,
     image: "/images/Arı Sütü.png", 
     category: "Takviye",
     description: "Propolis, Arı Sütü ve Polen karışımı ile hazırlanan özel atom enerji macunu.",

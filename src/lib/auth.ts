@@ -30,13 +30,12 @@ export const authOptions: NextAuthOptions = {
 
         if (!isPasswordValid) return null;
 
-        // 🔥 önemli: role dahil ama TS uyumlu return
         return {
           id: user.id,
           email: user.email,
           name: user.name,
-          role: user.role ?? "user",
-        } as any;
+          role: user.role,
+        };
       },
     }),
   ],
@@ -48,16 +47,16 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = (user as any).id;
-        token.role = (user as any).role ?? "user";
+        token.id = user.id;
+        token.role = user.role ?? "USER";
       }
       return token;
     },
 
     async session({ session, token }) {
       if (session.user) {
-        (session.user as any).id = token.id;
-        (session.user as any).role = token.role;
+        session.user.id = token.id;
+        session.user.role = token.role;
       }
       return session;
     },

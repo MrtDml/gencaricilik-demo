@@ -1,6 +1,6 @@
 "use client";
 
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { LayoutDashboard, ShoppingBag, Users, Settings, LogOut, FileBadge } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -10,14 +10,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  // Yalnızca ADMIN rolüne sahip kullanıcılar girebilir.
   useEffect(() => {
-    if (status === "unauthenticated" || (session?.user as any)?.role !== "ADMIN") {
-      // router.push("/login"); 
-      // Test aşamasında redirect yapmıyoruz ki arayüzü görebilesiniz.
-      // Canlıya alırken yukardaki satırı açın.
+    if (status === "loading") return;
+    if (status === "unauthenticated" || session?.user?.role !== "ADMIN") {
+      router.push("/login");
     }
   }, [status, session, router]);
+
+  if (status === "loading" || session?.user?.role !== "ADMIN") {
+    return (
+      <div className="flex h-screen items-center justify-center bg-dark-950">
+        <p className="text-gray-400">Yükleniyor...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex h-screen bg-dark-950 pt-20">
@@ -45,7 +51,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </Link>
         </nav>
         <div className="p-4 border-t border-white/5">
-          <button className="flex w-full items-center gap-3 p-3 rounded-lg text-red-400 hover:bg-red-400/10 transition-colors">
+          <button
+            onClick={() => signOut({ callbackUrl: "/" })}
+            className="flex w-full items-center gap-3 p-3 rounded-lg text-red-400 hover:bg-red-400/10 transition-colors"
+          >
             <LogOut size={20} /> Çıkış Yap
           </button>
         </div>
