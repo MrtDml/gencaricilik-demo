@@ -209,7 +209,15 @@ export default function HakkimizdaPage() {
   }, []);
 
   return (
-    <div className="pt-32 pb-20 container mx-auto px-4 min-h-screen">
+    <div className="relative pt-32 pb-20 min-h-screen">
+      {/* Arka plan */}
+      <div
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/ArtvinYusufeli.jpg')" }}
+      />
+      <div className="fixed inset-0 -z-10 bg-black/70" />
+
+      <div className="container mx-auto px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-yellow-200 mb-8 text-center">
           Hikayemiz
@@ -244,6 +252,7 @@ export default function HakkimizdaPage() {
             kalitesinden ödün vermeyen bir marka olmak.
           </p>
         </div>
+      </div>
       </div>
     </div>
   );
