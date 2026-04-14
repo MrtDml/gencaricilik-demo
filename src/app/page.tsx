@@ -1,24 +1,65 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import Bee from "@/components/Bee";
 import Link from "next/link";
 import { ArrowRight, Star, ShieldCheck, Truck } from "lucide-react";
 import { productsData } from "@/data/products";
 
+// Animasyonlu arka plan görselleri - admin panelinden yönetilebilir
+const heroImages = [
+  "/images/ArtvinYusufeli.jpg",
+  // Yeni görseller buraya eklenecek
+];
+
 export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (heroImages.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col w-full">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
-        <div 
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: "url('/images/ArtvinYusufeli.jpg')",
-          }}
-        />
+        {/* Animated Background Images */}
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('${heroImages[currentImageIndex]}')`,
+            }}
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 z-10 bg-black/75" /> {/* Dim Overlay */}
+
+        {/* Slideshow dots */}
+        {heroImages.length > 1 && (
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+            {heroImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentImageIndex(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  i === currentImageIndex
+                    ? "bg-primary scale-125"
+                    : "bg-white/40 hover:bg-white/70"
+                }`}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="relative z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
           {/* Sevimli Arı */}

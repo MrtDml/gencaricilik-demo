@@ -2,7 +2,7 @@
 
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
-import { LayoutDashboard, ShoppingBag, Users, Settings, LogOut, FileBadge } from "lucide-react";
+import { LayoutDashboard, ShoppingBag, Users, Settings, LogOut, FileBadge, Package, Bell } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -33,15 +33,21 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <h2 className="text-xl font-bold text-white tracking-wide">Yönetim Paneli</h2>
           <p className="text-sm text-gray-400 mt-1">Hoş geldiniz, Admin</p>
         </div>
-        <nav className="flex-1 p-4 space-y-2">
-          <Link href="/admin" className="flex items-center gap-3 p-3 rounded-lg bg-primary/10 text-primary transition-colors">
+        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
+          <Link href="/admin" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 hover:text-white text-gray-400 transition-colors">
             <LayoutDashboard size={20} /> Dashboard
+          </Link>
+          <Link href="/admin/urunler" className="flex items-center gap-3 p-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+            <Package size={20} /> Ürünler
           </Link>
           <Link href="/admin/orders" className="flex items-center gap-3 p-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
             <ShoppingBag size={20} /> Siparişler
           </Link>
           <Link href="/admin/users" className="flex items-center gap-3 p-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
             <Users size={20} /> Kullanıcılar
+          </Link>
+          <Link href="/admin/duyurular" className="flex items-center gap-3 p-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+            <Bell size={20} /> Duyurular
           </Link>
           <Link href="/admin/belgeler" className="flex items-center gap-3 p-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
             <FileBadge size={20} /> Belgeler

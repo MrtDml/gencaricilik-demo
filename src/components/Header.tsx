@@ -29,6 +29,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider">
             <Link href="/" className="hover:text-primary transition-colors">Ana Sayfa</Link>
             <Link href="/hakkimizda" className="hover:text-primary transition-colors">Hakkımızda</Link>
+            <Link href="/urunlerimiz" className="hover:text-primary transition-colors">Ürünlerimiz</Link>
             <Link href="/belgelerimiz" className="hover:text-primary transition-colors">Belgelerimiz</Link>
             <Link href="/shop" className="hover:text-primary transition-colors">Mağaza</Link>
             <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
@@ -71,6 +72,7 @@ export default function Header() {
             <nav className="flex flex-col px-4 py-4 gap-4 text-center">
               <Link href="/" className="py-2 hover:text-primary transition-colors">Ana Sayfa</Link>
               <Link href="/hakkimizda" className="py-2 hover:text-primary transition-colors">Hakkımızda</Link>
+              <Link href="/urunlerimiz" className="py-2 hover:text-primary transition-colors">Ürünlerimiz</Link>
               <Link href="/belgelerimiz" className="py-2 hover:text-primary transition-colors">Belgelerimiz</Link>
               <Link href="/shop" className="py-2 hover:text-primary transition-colors">Mağaza</Link>
               <Link href="/blog" className="py-2 hover:text-primary transition-colors">Blog</Link>
