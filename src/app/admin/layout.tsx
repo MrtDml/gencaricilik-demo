@@ -2,7 +2,7 @@
 
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
-import { LayoutDashboard, ShoppingBag, Users, Settings, LogOut, FileBadge, Package, Bell } from "lucide-react";
+import { LayoutDashboard, ShoppingBag, Users, Settings, LogOut, FileBadge, Package, Bell, Images } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -51,6 +51,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </Link>
           <Link href="/admin/belgeler" className="flex items-center gap-3 p-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
             <FileBadge size={20} /> Belgeler
+          </Link>
+          <Link href="/admin/galeri" className="flex items-center gap-3 p-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
+            <Images size={20} /> Galeri
           </Link>
           <Link href="/admin/settings" className="flex items-center gap-3 p-3 rounded-lg text-gray-400 hover:bg-white/5 hover:text-white transition-colors">
             <Settings size={20} /> Ayarlar
