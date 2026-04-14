@@ -62,8 +62,8 @@ function Slideshow({ slides }: { slides: GallerySlide[] }) {
 
   return (
     <div
-      className="relative w-full overflow-hidden rounded-2xl shadow-2xl group bg-black"
-      style={{ aspectRatio: "16/9" }}
+      className="relative w-full max-w-[420px] mx-auto overflow-hidden rounded-2xl shadow-2xl group bg-black"
+      style={{ aspectRatio: "9/16" }}
     >
       {/* Önceki slayt (fade-out) */}
       {prevSlide && (
@@ -71,12 +71,22 @@ function Slideshow({ slides }: { slides: GallerySlide[] }) {
           className="absolute inset-0"
           style={{ opacity: transitioning ? 0 : 1, transition: "opacity 0.6s ease" }}
         >
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${prevSlide.imageUrl})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              filter: "blur(20px) brightness(0.3)",
+              transform: "scale(1.15)",
+            }}
+          />
           <Image
             src={prevSlide.imageUrl}
             alt=""
             fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 900px"
+            className="object-contain relative z-10"
+            sizes="420px"
           />
         </div>
       )}
@@ -84,28 +94,37 @@ function Slideshow({ slides }: { slides: GallerySlide[] }) {
       {/* Aktif slayt */}
       <div
         className="absolute inset-0"
-        style={{
-          opacity: transitioning ? 0 : 1,
-          transition: "opacity 0.6s ease",
-        }}
+        style={{ opacity: transitioning ? 0 : 1, transition: "opacity 0.6s ease" }}
       >
-        {/* Ana resim — Ken Burns efektli, çerçeveyi tamamen doldurur */}
+        {/* Blurlu arka plan — yan boşlukları doldurur */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${slide.imageUrl})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(20px) brightness(0.3)",
+            transform: "scale(1.15)",
+          }}
+        />
+
+        {/* Ana resim — Ken Burns + tam görünür */}
         <div
           key={kbKey}
-          className={`absolute inset-0 ${kbClass}`}
+          className={`absolute inset-0 z-10 ${kbClass}`}
           style={{ transformOrigin: "center center" }}
         >
           <Image
             src={slide.imageUrl}
             alt={slide.title || "Galeri"}
             fill
-            className="object-cover"
+            className="object-contain"
             priority
-            sizes="(max-width: 768px) 100vw, 900px"
+            sizes="420px"
           />
         </div>
 
-        {/* Alt gradient — caption için */}
+        {/* Alt gradient */}
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
       </div>
 
