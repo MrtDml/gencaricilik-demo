@@ -71,21 +71,11 @@ function Slideshow({ slides }: { slides: GallerySlide[] }) {
           className="absolute inset-0"
           style={{ opacity: transitioning ? 0 : 1, transition: "opacity 0.6s ease" }}
         >
-          {/* Blurred backdrop */}
-          <div
-            className="absolute inset-0 scale-110"
-            style={{
-              backgroundImage: `url(${prevSlide.imageUrl})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              filter: "blur(18px) brightness(0.35)",
-            }}
-          />
           <Image
             src={prevSlide.imageUrl}
             alt=""
             fill
-            className="object-contain relative z-10"
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, 900px"
           />
         </div>
@@ -99,28 +89,17 @@ function Slideshow({ slides }: { slides: GallerySlide[] }) {
           transition: "opacity 0.6s ease",
         }}
       >
-        {/* Blurred backdrop — tüm çerçeveyi doldurur */}
-        <div
-          className="absolute inset-0 scale-110"
-          style={{
-            backgroundImage: `url(${slide.imageUrl})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            filter: "blur(18px) brightness(0.35)",
-          }}
-        />
-
-        {/* Ana resim — Ken Burns efektli, tam görünür */}
+        {/* Ana resim — Ken Burns efektli, çerçeveyi tamamen doldurur */}
         <div
           key={kbKey}
-          className={`absolute inset-0 z-10 ${kbClass}`}
+          className={`absolute inset-0 ${kbClass}`}
           style={{ transformOrigin: "center center" }}
         >
           <Image
             src={slide.imageUrl}
             alt={slide.title || "Galeri"}
             fill
-            className="object-contain"
+            className="object-cover"
             priority
             sizes="(max-width: 768px) 100vw, 900px"
           />
