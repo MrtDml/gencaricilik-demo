@@ -51,7 +51,7 @@ function Slideshow({ slides }: { slides: GallerySlide[] }) {
   // Otomatik geçiş
   useEffect(() => {
     if (slides.length < 2) return;
-    timerRef.current = setInterval(goNext, 5500);
+    timerRef.current = setInterval(goNext, 4000);
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [goNext, slides.length]);
 
@@ -62,7 +62,7 @@ function Slideshow({ slides }: { slides: GallerySlide[] }) {
 
   return (
     <div
-      className="relative w-full max-w-[420px] mx-auto overflow-hidden rounded-2xl shadow-2xl group bg-black"
+      className="relative w-full max-w-[560px] mx-auto overflow-hidden rounded-2xl shadow-2xl group bg-black"
       style={{ aspectRatio: "9/16" }}
     >
       {/* Önceki slayt (fade-out) */}

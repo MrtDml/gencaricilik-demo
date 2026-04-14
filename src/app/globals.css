@@ -56,7 +56,7 @@
   100% { transform: scale(1.12) translate(3%, 0); }
 }
 
-.kb-in   { animation: kenburns-in       6s ease-in-out forwards; }
-.kb-out  { animation: kenburns-out      6s ease-in-out forwards; }
-.kb-panl { animation: kenburns-pan-left 6s ease-in-out forwards; }
-.kb-panr { animation: kenburns-pan-right 6s ease-in-out forwards; }
+.kb-in   { animation: kenburns-in       3.5s ease-in-out forwards; }
+.kb-out  { animation: kenburns-out      3.5s ease-in-out forwards; }
+.kb-panl { animation: kenburns-pan-left 3.5s ease-in-out forwards; }
+.kb-panr { animation: kenburns-pan-right 3.5s ease-in-out forwards; }
