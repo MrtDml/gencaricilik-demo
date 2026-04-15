@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import WanderingBee from "@/components/WanderingBee";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { Toaster } from "react-hot-toast";
+import DemoBanner from "@/components/DemoBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="tr" className="dark">
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <Providers>
+          <DemoBanner />
           <Toaster position="bottom-right" toastOptions={{ style: { background: '#111', color: '#fff', border: '1px solid #333' } }} />
           <WanderingBee />
           <WhatsAppButton />
