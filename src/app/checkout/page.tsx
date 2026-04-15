@@ -1,10 +1,11 @@
 "use client";
 
 import { useCartStore } from "@/store/cart";
-import { CreditCard, Truck, AlertCircle } from "lucide-react";
+import { CreditCard, Truck, AlertCircle, Building2 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import BankAccountsInfo from "@/components/BankAccountsInfo";
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCartStore();
@@ -75,6 +76,15 @@ export default function CheckoutPage() {
               <div className="mt-6 p-4 bg-yellow-500/10 border border-yellow-500/20 text-yellow-200 rounded-lg flex gap-3 text-sm">
                 <AlertCircle size={20} className="shrink-0" />
                 <p>Iyzico entegrasyonu onay aşamasındadır. Şimdilik "Siparişi Tamamla" butonuna basarak sanal / mock testi yapabilirsiniz.</p>
+              </div>
+            )}
+            {method === "havale" && (
+              <div className="mt-6">
+                <p className="text-sm text-gray-400 flex items-center gap-2 mb-4">
+                  <Building2 size={16} className="text-primary" />
+                  Siparişi tamamladıktan sonra aşağıdaki hesaplardan birine havale yapınız. Açıklama kısmına adınızı ve soyadınızı yazmayı unutmayınız.
+                </p>
+                <BankAccountsInfo />
               </div>
             )}
           </div>

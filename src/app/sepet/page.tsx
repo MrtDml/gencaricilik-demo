@@ -4,6 +4,7 @@ import { useCartStore } from "@/store/cart";
 import { Minus, Plus, Trash2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import BankAccountsInfo from "@/components/BankAccountsInfo";
 
 export default function SepetPage() {
   const { items, removeItem, updateQuantity, totalPrice } = useCartStore();
@@ -89,6 +90,12 @@ export default function SepetPage() {
               <Link href="/checkout" className="w-full bg-primary hover:bg-primary/90 text-black py-4 rounded-full font-bold flex items-center justify-center gap-2 transition-all">
                 Ödemeye Geç <ArrowRight size={18} />
               </Link>
+
+              {/* Havale / EFT */}
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <p className="text-xs text-gray-500 uppercase tracking-widest mb-3">Havale / EFT ile de ödeyebilirsiniz</p>
+                <BankAccountsInfo compact />
+              </div>
             </div>
           </div>
         </div>

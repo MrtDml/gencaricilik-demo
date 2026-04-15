@@ -112,3 +112,15 @@ model GallerySlide {
   updatedAt DateTime @updatedAt
 }
 
+model BankAccount {
+  id          String   @id @default(cuid())
+  bankName    String
+  accountName String
+  iban        String
+  branch      String?
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
