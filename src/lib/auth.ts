@@ -6,10 +6,10 @@ import bcrypt from "bcryptjs";
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Giriş Yap",
+      name: "Credentials",
       credentials: {
-        email: { label: "E-Posta", type: "email" },
-        password: { label: "Şifre", type: "password" },
+        email: { label: "Email", type: "email" },
+        password: { label: "Password", type: "password" },
       },
 
       async authorize(credentials) {
