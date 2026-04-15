@@ -16,12 +16,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2">
             <img 
-              src="/images/GençArıcılık_Logo.png" 
-              alt="Genç Arıcılık Logo" 
+              src="/images/logo.png"
+              alt="Genç Arıcılık Logo"
               className="h-12 w-auto object-contain"
-              onError={(e) => {
-                e.currentTarget.src = "https://via.placeholder.com/150x50?text=Logo";
-              }}
             />
           </Link>
 

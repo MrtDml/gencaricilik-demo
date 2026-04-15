@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, Calendar, User, Clock } from "lucide-react";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
 
 export default function BlogPage() {
   const articles = [
@@ -19,7 +18,7 @@ export default function BlogPage() {
       id: 2,
       title: "Arı Sütünün Bilinmeyen 5 İnanılmaz Faydası",
       excerpt: "Kraliçe arının yegane besini olan arı sütü (Royal Jelly) hücre yenilemeden enerji artırımına kadar insan bedenine sayısız mucize sunuyor.",
-      image: "/images/Arı Sütü.png",
+      image: "/images/ari-sutu.png",
       date: "05 Nisan 2026",
       author: "Genç Arıcılık",
       readTime: "5 dk okuma"
@@ -70,16 +69,16 @@ export default function BlogPage() {
               </div>
               
               <h2 className="text-2xl font-bold text-white mb-3 leading-snug group-hover:text-primary transition-colors">
-                <Link href="#">{article.title}</Link>
+                <span>{article.title}</span>
               </h2>
               
               <p className="text-gray-400 leading-relaxed mb-6 flex-grow">
                 {article.excerpt}
               </p>
               
-              <Link href="#" className="inline-flex items-center gap-2 text-primary hover:text-white font-semibold transition-colors mt-auto w-max">
-                Yazıyı Oku <ArrowRight size={18} />
-              </Link>
+              <span className="inline-flex items-center gap-2 text-primary/50 font-semibold mt-auto w-max text-sm cursor-default select-none">
+                Yakında <ArrowRight size={16} />
+              </span>
             </div>
           </motion.article>
         ))}
