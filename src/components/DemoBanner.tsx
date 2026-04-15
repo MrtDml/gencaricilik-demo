@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AlertTriangle, X, Clock, PhoneCall } from "lucide-react";
 
 // Demo bitiş tarihi — buradan kolayca değiştirin
-const DEMO_END_DATE = new Date("2026-03-19T00:00:00");
+const DEMO_END_DATE = new Date("2026-04-19T00:00:00");
 
 // Demo modu açık/kapalı — yayına geçince false yapın
 const DEMO_MODE = true;
