@@ -27,7 +27,7 @@ export default function BlogPage() {
       id: 3,
       title: "Doğal Antibiyotik: Propolis Nasıl Tüketilir?",
       excerpt: "Bağışıklık sisteminin en güçlü savaşçısı propolis damlası suya mı katılmalı yoksa bala mı damlatılmalı? Günlük doz ne olmalıdır?",
-      image: "/images/Propolis.png",
+      image: "/images/propolis.png",
       date: "18 Mart 2026",
       author: "Genç Arıcılık",
       readTime: "4 dk okuma"
